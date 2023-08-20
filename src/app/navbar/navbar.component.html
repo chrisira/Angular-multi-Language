@@ -20,9 +20,9 @@
 
                 <li class="nav-item ">
                     <select class="form-select" (change)="changeLang($event.target.value)">
-                        <option value="kin"><span class="flag-icon flag-icon-fr flag-icon-squared"></span> Kinyarwanda</option>
-                        <option value="en"><span class="flag-icon flag-icon-fr flag-icon-squared"></span> English</option>
-                        <option value="fr"><span class="flag-icon flag-icon-fr flag-icon-squared"></span> Francais</option>
+                        <option value="kin" [selected]="lang==='kin'"><span class="flag-icon flag-icon-fr flag-icon-squared"></span> Kinyarwanda</option>
+                        <option value="en" [selected]="lang==='en'"><span class="flag-icon flag-icon-fr flag-icon-squared"></span> English</option>
+                        <option value="fr" [selected]="lang==='fr'"><span class="flag-icon flag-icon-fr flag-icon-squared"></span> Francais</option>
                        
                     </select>
                 </li>
