@@ -6,7 +6,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { CardComponent } from './card/card.component';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 export function HttpLoaderFactory(http: HttpClient) {
     return new TranslateHttpLoader(http);
@@ -19,7 +19,9 @@ export function HttpLoaderFactory(http: HttpClient) {
     CardComponent
   ],
   imports: [
+    HttpClientModule,
     BrowserModule,
+    
     TranslateModule.forRoot(
       {
           loader: {
