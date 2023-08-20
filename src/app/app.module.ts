@@ -4,7 +4,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { CardComponent } from './card/card.component';
-import { TranslateModule } from '@ngx-translate/core';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { HttpClient } from '@angular/common/http';
+
+export function HttpLoaderFactory(http: HttpClient) {
+    return new TranslateHttpLoader(http);
+}
 
 @NgModule({
   declarations: [
@@ -14,9 +20,18 @@ import { TranslateModule } from '@ngx-translate/core';
   ],
   imports: [
     BrowserModule,
-    TranslateModule.forRoot()
+    TranslateModule.forRoot(
+      {
+          loader: {
+              provide: TranslateLoader,
+              useFactory: HttpLoaderFactory,
+              deps: [HttpClient]
+          }
+        }
+      
+    )
   ],
-  providers: [],
+  providers: [HttpClient],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
