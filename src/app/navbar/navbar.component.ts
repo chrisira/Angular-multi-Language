@@ -7,4 +7,11 @@ import { Component } from '@angular/core';
 })
 export class NavbarComponent {
 
+
+  // adding the function to set the local storage language
+  changeLang(lang){
+    //setting the selected language into the local storage
+    localStorage.setItem('lang',lang);
+  }
+
 }
