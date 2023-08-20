@@ -12,5 +12,6 @@ export class AppComponent {
   constructor(private translationService:TranslateService){
     this.translationService.setDefaultLang('kin')
     this.translationService.use(localStorage.getItem('lang') || 'kin')
+    
   }
 }
